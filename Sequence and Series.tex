@@ -1,0 +1,80 @@
+\documentclass[]{article}
+
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{fullpage}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\pgfplotsset{width=10cm,compat=1.9}
+
+\hypersetup{colorlinks=true}
+
+\begin{document}
+
+\title{Sequence and Series}
+\author{Kanishk and Taraash, \'Evariste}
+\date{}
+
+\setcounter{secnumdepth}{0}
+\maketitle
+
+\section{Telescoping}
+Assume $\{a_n\}_{n=0}^{\infty}$ is a sequence whose general term, $a_k$ can be written as $b_{k+1}-b_{k}$, where $\{b_n\}_{n=0}^{\infty}$ is another infinite sequence. Then, \[\sum_{k=0}^{\infty}a_k=B-b_0\] where \[B=\lim_{n\to\infty}b_n,\] also known as limit of the series. You could easily show this by writing a few terms and seeing every other term cancel out.
+
+\section{Partial fractions}
+The method of breaking down a fraction into a sum of lesser degree fractions. Very helpful in converting a series to a telescoping sum if we can find a breakdown which admits the property of a telescoping series. Consider \[\underbrace{\frac{6^n}{(3^{n+1}-2^{n+1})(3^n-2^n)}}_{a_n}=\underbrace{\frac{2^n}{3^n-2^n}}_{b_n}-\underbrace{\frac{2^{n+1}}{3^{n+1}-2^{n+1}}}_{b_{n+1}}\]
+This gives us \[\sum_{k=\alpha}^{\beta}a_k=b_\alpha-b_\beta.\]
+Note that \[B=\lim_{n\to\infty}\frac{2^n}{3^n-2^n}=0,\]
+which also tells us $\sum_{k=0}^{\infty}b_k$ converges. (Since if $B\neq0$, we would keep on adding something forever, and the sum would keep increasing/decreasing.)
+Also note that the to try and get this decomposition of $a_n$, we try to be desperate and let \[{\frac{6^n}{(3^{n+1}-2^{n+1})(3^n-2^n)}}=\frac{A}{3^{n+1}-2^{n+1}}-\frac{B}{3^n-2^n}\] because we're trying to get something exactly like that (for the telescoping to work). Solving for $A$ and $B$ now is simple, $A=-2^{n+1}$ and $B=-2^n$ will work. $A=3^{n+1}$ and $B=3^n$ will also work (they are equivalent, you could get one from the other).
+
+\section{P-series}
+Or the Riemann-Zeta function for complex valued inputs, \[\zeta(p)=\sum_{k=1}^{\infty}\frac{1}{k^p}\] converges for $p>1$, and diverges otherwise. For $p=1$, it is the harmonic series.
+
+\begin{tikzpicture}
+    \begin{axis}[
+            axis lines = left,
+            xlabel = \(x\),
+            ylabel = {\(1/x\)},
+        ]
+        \addplot [
+            domain=0.5:4.5,
+            samples=100,
+            color=blue,
+        ]
+        {1/x};
+        \addplot[gray, dashed, thick] coordinates {(1,0)(1,1)(2,1)(2,0)};
+        \addplot[gray, dashed, thick] coordinates {(2,1/2)(3,1/2)(3,0)};
+        \addplot[gray, dashed, thick] coordinates {(3,1/3)(4,1/3)(4,0)};
+    \end{axis}
+\end{tikzpicture}
+
+The sum \[\sum_{k=1}^{\infty}\frac{1}{k}=1+\frac{1}{2}+\frac{1}{3}+\cdots\] can be thought of as the area of a rectangle with unit width and $1/k$ height, or the upper Darboux sum approximation of the curve $y=1/x$. In other words, \[\int_{1}^{\infty}\frac{1}{x}\,\mathrm{d}x < \sum_{k=1}^{\infty}\frac{1}{k}\] where the integral on the left is $\ln x \big|_{1}^{\infty}$, which is infinite. And since the sum on the right is larger, it too, must be infinite.
+
+\section{Ratio test}
+Let $\{a_n\}$ be a sequence, \[r=\lim_{n\to\infty}\frac{a_{n+1}}{a_n}\] For $r>1$, the sequence diverges, for $r<1$ the sequence converges. For $r=1$ the test is inconclusive.
+
+\section{Root test}
+Let $A=\sum_{k=1}^{\infty}a_n$, consider \[r=\lim_{n\to\infty}a_n^\frac{1}{n}.\] If $r<1$, A converges and if $r>1$, it diverges. For $r=1$ the test is inconclusive.
+
+\section{Absolute convergence}
+Since \[a_n\le\lvert a_n \rvert,\] if \(\sum\lvert a_n \rvert\) converges then so does $\sum a_n$. Such a sequence $\{a_n\}$ is called absolutely convergent. A sequence is called conditionally convergent if $\sum a_n$ converges but $\sum\lvert a_n \rvert$ does not, for example \[1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots\]
+
+\section{Cauchy's condensation test}
+For an increasing, positive sequence \[0\le a_1 \le a_2 \le a_3 \le\ldots\]
+$\sum a_n$ converges if \[\sum_{k=0}^{\infty}2^ka_{(2^k)}\] converges. (Take a moment to verify this is indeed trivial.)
+
+\section{Questions}
+The questions discussed were
+\begin{itemize}
+    \item SMMC 2023 A1
+    \item SMMC 2019 A1
+    \item SMMC 2019 A2
+    \item SMMC sample question \# 9
+    \item SMMC sample question \# 13
+    \item BMO 2023 2
+\end{itemize}
+
+\end{document}
