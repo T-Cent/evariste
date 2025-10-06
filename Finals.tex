@@ -1,0 +1,153 @@
+\documentclass{beamer}
+
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage{tikz}
+
+\begin{document}
+
+\def\size{1.4}
+\newcommand{\integral}[3]{\int_{#1}^{#2}#3\,\mathrm{d}x}
+\newcommand{\sint}[4]{\scalebox{\size}{$\displaystyle\integral{#1}{#2}{#3}$}}
+
+\title{Grand Finale \\ Finals}
+\author{Integral Cup}
+\institute{IIT Bombay}
+\date{\today}
+
+
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\setbeamertemplate{background}{
+    \vspace*{20pt}
+    \begin{tikzpicture}[remember picture,overlay]
+        \centering
+        \node[anchor=north west, xshift=0.5cm, yshift=-0.5cm] at (current page.north west) {\includegraphics[height=1.5cm]{optiverfinal.png}};
+        \node[anchor=north west, xshift=1.4cm, yshift=-1.9cm] at (current page.north west) {\small Title sponsor};
+        \node[yshift=-2cm] at (current page.north) {\includegraphics[height=2cm]{grandfinale2.png}};
+        \node[anchor=north east, xshift=-0.5cm, yshift=-0.5cm] at (current page.north east) {\includegraphics[height=2cm]{qrtfinal.png}};
+        \node[anchor=north east, xshift=-1cm, yshift=-2.2cm] at (current page.north east) {\footnotesize Presenting sponsor};
+    \end{tikzpicture}
+}
+\centering
+\begin{frame}
+    \vfill
+    \LARGE The finale \\[10pt]
+    \normalsize Five minutes per integral
+    \vfill
+\end{frame}
+\begin{frame}
+    \vspace*{70pt}
+    \textbf{Question 1}
+    \vfill
+    \def\size{1.1}
+    \sint{-1}{1}{\sqrt{5x^2+33+2\sqrt{6x^4+91x^2+200}}}{}\pause\\[10pt]\scalebox{1}{$\displaystyle=\boxed{\sqrt{11}+3\sqrt{3}+\frac{8\sqrt{3}}{3}\ln\left(\frac{\sqrt{3}+\sqrt{11}}{2\sqrt{2}}\right)+\frac{25\sqrt{2}}{2}\ln\left(\frac{3\sqrt{3}+\sqrt{2}}{5}\right)}$}
+    \vfill
+\end{frame}
+\def\size{1.5}
+% \begin{frame}
+%     \vspace*{70pt}
+%     \textbf{Question 2}
+%     \vfill
+%     \sint{0}{\infty}{\frac{e^{-1/x^2}}{x^2}}{x}\scalebox{\size}{$\displaystyle=\boxed{\frac{\sqrt{\pi}}{4}}$}
+%     \vfill
+% \end{frame}
+\begin{frame}
+    \vspace*{70pt}
+    \textbf{Question 2}
+    \vfill
+    \sint{-1}{1}{\frac{1}{1-\frac{x}{1+x-\frac{x^2}{1+x^2-\frac{x^3}{1+x^3-\cdots\frac{x^{2025}}{1+x^{2025}}}}}}}{}
+    \vfill
+\end{frame}
+\begin{frame}
+    \vspace*{70pt}
+    \textbf{Question 2}
+    \vfill
+    \sint{-1}{1}{\cdots}{} \[=\boxed{2\sum_{k=0}^{2025}\frac{1}{1+2k(4k+1)}+\frac{1}{1+(2k+2)(4k+3)}}\]
+    \vfill
+\end{frame}
+\begin{frame}
+    \vspace*{70pt}
+    \textbf{Question 3}
+    \vfill
+    \sint{\pi/2}{3\pi/2}{\arcsin\left(\sqrt{\ln(x)}\right)}{}
+    \vfill
+    {\color{red} we ignore this question right now, the limits are wrong! but the main idea was using integration by parts, i'll give a corrected solution in a pdf i will make and send soon}\pause\\[10pt]\scalebox{1}{$\displaystyle=\boxed{\frac{3\pi}{2}\arcsin\sqrt{\ln\frac{3\pi}{2}}-\frac{\pi}{2}\arcsin\sqrt{\ln\frac{\pi}{2}}-\sum_{k\ge1}\frac{{2k-1\choose k}}{k!2^{k-1}}{\color{red}\pi}}$}
+    \vfill
+\end{frame}
+\begin{frame}
+    \vspace*{70pt}
+    \textbf{Question 4}
+    \vfill
+    \sint{\pi}{\infty}{\frac{\log_{\pi}(e)}{\pi x^2}\frac{x\pi^{\pi/x}-\pi^2}{1-\log_{\pi}x}}{}\pause\\[10pt]\scalebox{1.2}{$\displaystyle=\boxed{\sum_{k\ge1}\frac{\ln(k)\ln^k\pi}{\pi k!}-\ln2}$}
+    \vfill
+\end{frame}
+\begin{frame}
+    \vspace*{70pt}
+    \textbf{Question 5}
+    \vfill
+    \def\size{1.1}
+    \sint{-1}{1}{\sum_{a=1}^{2025}\sum_{b=1}^{2025}\left\lfloor \frac{x}{a+b}-\frac{1}{2}-\left\lfloor \frac{x}{a+b} \right\rfloor \right\rfloor \sin(a\pi x)\sin(b\pi x)}{x}\pause\\[10pt]\scalebox{\size}{$\displaystyle=\boxed{{\color{red}-}\frac{2025}{2}}$}
+    \vfill
+\end{frame}
+\def\size{1.5}
+\begin{frame}
+    \vspace*{70pt}
+    \textbf{Question 6}
+    \vfill
+    \sint{0}{\pi}{\arctan\left(\sin^2x\right)}{x}\pause\\[10pt]\scalebox{\size}{$\displaystyle=\boxed{\pi\arctan\left(\sqrt{\frac{1}{\sqrt{2}}-\frac{1}{2}}\right)}$}
+    \vfill
+\end{frame}
+\begin{frame}
+    \vspace*{70pt}
+    \textbf{Question 7}
+    \vfill
+    \sint{0}{5!}{\sum_{n=0}^{\infty}\left\{\frac{x}{n!}\right\}}{x}
+    \vfill
+\end{frame}
+\begin{frame}
+    \vspace*{70pt}
+    \textbf{Question 7}
+    \vfill
+    \sint{0}{5!}{\sum_{n=0}^{\infty}\left\{\frac{x}{n!}\right\}}{x}\scalebox{\size}{$\displaystyle=\boxed{5!(60e-100)}$}
+    \vfill
+\end{frame}
+
+
+\begin{frame}
+    \vspace*{70pt}
+    \textbf{Tiebreaker 1}
+    \vfill
+    \sint{0}{1}{\log^2(1-x)\log^2(1+x)}{}\pause\\[10pt]
+    \[=\boxed{
+    \begin{aligned}
+        &24 - 8\zeta(2) - 8\zeta(3) - \zeta(4) + 8\log(2)\zeta(2) \\
+        &\quad - 4\log^2(2)\zeta(2) + 8\log(2)\zeta(3)-24\log2 \\
+        &+12\log^2(2)-4\log^3(2)+\log^4(2)
+    \end{aligned}
+    }
+    \]
+    \vfill
+\end{frame}
+
+\begin{frame}
+    \vspace*{70pt}
+    \textbf{Tiebreaker 2}
+    \vfill
+    \sint{0}{1}{\frac{1}{(1+yx)\sqrt{1-x^2}}}{}\pause\\[10pt]\scalebox{\size}{$\displaystyle=\boxed{\frac{\arccos(y)}{\sqrt{1-y^2}}}$}
+\end{frame}
+
+\begin{frame}
+    \vspace*{70pt}
+    \textbf{Tiebreaker 3}
+    \vfill
+    \sint{0}{\pi/2}{\frac{x^3}{\sin^2(x)}}{}\pause\\[10pt]\scalebox{\size}{$\displaystyle=\boxed{\frac{3}{8}\left(\pi^2\ln4-7\zeta(3)\right)}$}
+\end{frame}
+
+\end{document}
